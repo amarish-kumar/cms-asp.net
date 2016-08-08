@@ -1,0 +1,8 @@
+/Angular2.DB/*
+/Angular2WebApi/*
+/Models/bin
+/Models/obj
+/packages
+/Repositories/*
+/Repositories/obj
+/Repositories/bin
