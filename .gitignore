@@ -7,3 +7,9 @@
 /Repositories/obj
 /Repositories/bin
 /.vs
+/Angular2WebApi/app/*.js
+/Angular2WebApi/app/*.map
+/Angular2WebApi/app/components/*.map
+/Angular2WebApi/app/components/*.js
+/Angular2WebApi/app/components/carousel.component/*.map
+/Angular2WebApi/app/components/carousel.component/*.js

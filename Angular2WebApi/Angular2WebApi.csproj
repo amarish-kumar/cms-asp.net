@@ -225,7 +225,7 @@
   <ItemGroup>
     <Content Include="app\components\blog.component.css" />
     <Content Include="app\components\carousel.component\carousel.component.css" />
-    <None Include="app\components\component.cshtml" />
+    <None Include="app\component.cshtml" />
     <Content Include="app\components\dashboard.component.html" />
     <Content Include="app\components\login.component.css" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -295,7 +295,6 @@
   <ItemGroup>
     <Folder Include="app\directives\" />
     <Folder Include="app\models\" />
-    <Folder Include="app\services\" />
     <Folder Include="App_Data\" />
     <Folder Include="Views\Account\" />
   </ItemGroup>
@@ -314,7 +313,7 @@
     <TypeScriptCompile Include="app\components\blog.component.ts" />
     <TypeScriptCompile Include="app\components\carousel.component\carousel.component.ts" />
     <TypeScriptCompile Include="app\components\dashboard.component.ts" />
-    <TypeScriptCompile Include="app\components\gallery.service.ts" />
+    <TypeScriptCompile Include="app\services\gallery.service.ts" />
     <TypeScriptCompile Include="app\components\login.component.ts" />
     <TypeScriptCompile Include="app\components\gallery.component.ts" />
     <TypeScriptCompile Include="app\components\carousel.component\image.interface.ts" />

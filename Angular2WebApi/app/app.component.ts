@@ -7,9 +7,14 @@ import { AboutComponent } from './components/about.component';
 
 @Component({
     selector: 'my-app',
-    templateUrl: 'app/components/component.cshtml',
+    templateUrl: 'app/component.cshtml',
     directives: [ROUTER_DIRECTIVES],
-    precompile: [DashboardComponent, BlogComponent, GalleryComponent, AboutComponent]
+    precompile: [DashboardComponent, BlogComponent, GalleryComponent, AboutComponent],
+    styles: [`
+     nav a.active {
+        color: #039be5;
+    }
+`]
 })
 export class AppComponent {
     title = 'App';
