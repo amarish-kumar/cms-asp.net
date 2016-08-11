@@ -5,12 +5,13 @@ import { GalleryComponent } from './components/gallery.component';
 import { AboutComponent } from './components/about.component';
 import { BlogEntryComponent } from './components/blog-entry.component';
 import { LoginComponent } from './components/login.component';
+import { RegisterComponent } from './components/register.component';
 
 const routes: RouterConfig = [
     {
         path: '',
         redirectTo: '/dashboard',
-        pathMatch: 'full' 
+        pathMatch: 'full'
     },
     {
         path: 'dashboard',
@@ -35,6 +36,10 @@ const routes: RouterConfig = [
     {
         path: 'login',
         component: LoginComponent
+    },
+    {
+        path: 'register',
+        component: RegisterComponent
     }
 ];
 

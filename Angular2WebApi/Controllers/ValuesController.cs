@@ -25,8 +25,7 @@ namespace Angular2WebApi.Controllers
                 id = 2,
                 name = "value2"
             });
-        }
-        [HttpGet]
+        }        
         // GET api/values
         public IEnumerable<Hero> Get()
         {           
@@ -40,8 +39,9 @@ namespace Angular2WebApi.Controllers
         }
 
         // POST api/values
-        public void Post([FromBody]string value)
+        public string Post(Hero value)
         {
+            return "value#";
         }
 
         // PUT api/values/5

@@ -33,9 +33,12 @@ export class CSSCarouselComponent {
 
 //IMAGES array implementing Image interface
 var IMAGES: Image[] = [
-    { "title": "We are covered", "url": "http://lorempixel.com/800/600" },
-    { "title": "Generation Gap", "url": "http://lorempixel.com/801/600" },
-    { "title": "Potter Me", "url": "http://lorempixel.com/802/600" },
-    { "title": "Pre-School Kids", "url": "http://lorempixel.com/803/600" },
-    { "title": "Young Peter Cech", "url": "http://lorempixel.com/804/600" }
+    { "title": "We are covered", "url": "/Images/img1.jpg" },
+    { "title": "Generation Gap", "url": "/Images/img2.jpg" },
+    { "title": "Potter Me", "url": "/Images/img3.jpg" },
+    { "title": "Pre-School Kids", "url": "/Images/img4.jpg" },
+    { "title": "Young Peter Cech", "url": "/Images/img5.jpg" },
+    { "title": "Young Peter Cech", "url": "/Images/img6.jpg" },
+    { "title": "Young Peter Cech", "url": "/Images/img7.jpg" },
+    { "title": "Young Peter Cech", "url": "/Images/img8.jpg" }
 ];

@@ -235,6 +235,14 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Images\img1.jpg" />
+    <Content Include="Images\img8.jpg" />
+    <Content Include="Images\img7.jpg" />
+    <Content Include="Images\img6.jpg" />
+    <Content Include="Images\img5.jpg" />
+    <Content Include="Images\img4.jpg" />
+    <Content Include="Images\img3.jpg" />
+    <Content Include="Images\img2.jpg" />
     <Content Include="Images\loading.gif" />
     <Content Include="Scripts\ai.0.22.19-build00125.js" />
     <Content Include="Scripts\ai.0.22.19-build00125.min.js" />
@@ -294,7 +302,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="app\directives\" />
-    <Folder Include="app\models\" />
     <Folder Include="App_Data\" />
     <Folder Include="Views\Account\" />
   </ItemGroup>
@@ -308,11 +315,14 @@
   <ItemGroup>
     <TypeScriptCompile Include="app\app.component.ts" />
     <TypeScriptCompile Include="app\app.routes.ts" />
+    <TypeScriptCompile Include="app\common\headers.ts" />
     <TypeScriptCompile Include="app\components\about.component.ts" />
     <TypeScriptCompile Include="app\components\blog-entry.component.ts" />
     <TypeScriptCompile Include="app\components\blog.component.ts" />
     <TypeScriptCompile Include="app\components\carousel.component\carousel.component.ts" />
     <TypeScriptCompile Include="app\components\dashboard.component.ts" />
+    <TypeScriptCompile Include="app\components\register.component.ts" />
+    <TypeScriptCompile Include="app\models\entry.ts" />
     <TypeScriptCompile Include="app\services\gallery.service.ts" />
     <TypeScriptCompile Include="app\components\login.component.ts" />
     <TypeScriptCompile Include="app\components\gallery.component.ts" />

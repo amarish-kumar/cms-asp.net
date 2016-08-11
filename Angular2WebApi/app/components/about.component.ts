@@ -2,6 +2,6 @@
 
 @Component({
     selector: 'about',
-    template: '<h1>About</h1>'
+    template: '<h1>About1</h1>'
 })
 export class AboutComponent { }
