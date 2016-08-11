@@ -21,10 +21,10 @@ export class LoginComponent {
         let confirmpassword = 'admin@test.com';
         let body2 = "grant_type=password&username=admin@test.com&password=$Test1234";
         let body = JSON.stringify({ username: email, password: password, grant_type: 'password' });
-        this.http.post('http://localhost:50464/Token', body, { headers: contentHeaders })
+        this.http.post('http://localhost:50464/Token', body2, { headers: contentHeaders })
             .subscribe(
             response => {
-                localStorage.setItem('id_token', response.json().id_token);
+                localStorage.setItem('tok', response.json().access_token);
                 this.router.navigate(['/dashboard']);
             },
             error => {

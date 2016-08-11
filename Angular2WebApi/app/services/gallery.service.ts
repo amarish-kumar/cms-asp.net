@@ -13,12 +13,12 @@ export class GalleryService {
 
     getValues(): Observable<Hero[]> {
         let people$ = this.http
-            .get(this.heroesUrl, { headers: this.getHeaders() })
+            .get(this.heroesUrl, { headers: this.getHeaders2() })
             .map(mapValue)
             .catch(handleError);
         return people$;
     }
-    
+
     getHeroes(): Observable<Person[]> {
         let people$ = this.http
             .get(`${this.baseUrl}/people`, { headers: this.getHeaders() })
@@ -35,6 +35,12 @@ export class GalleryService {
     private getHeaders() {
         let headers = new Headers();
         headers.append('Accept', 'application/json');
+        return headers;
+    }
+    private getHeaders2() {
+        let headers = new Headers();
+        headers.append('Accept', 'application/json;charset=UTF-8');
+        headers.append('Authorization', 'Bearer ' + localStorage['tok']);
         return headers;
     }
 }
@@ -89,7 +95,7 @@ function mapValue(response: Response): Hero {
 
 function toVal(r: any): Hero {
     let val = <Hero>({
-        id: r,       
+        id: r,
         name: r.name,
     });
     console.log('Parsed val:', val);

@@ -26,4 +26,9 @@ export class AppComponent {
     gotoRegister() {
         this.router.navigate(['/register']);
     }
+
+    logOut() {
+        console.log(localStorage['tok']);
+        localStorage.removeItem("tok");
+    }
 }

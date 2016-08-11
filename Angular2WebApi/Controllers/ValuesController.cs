@@ -7,7 +7,7 @@ using System.Web.Http;
 
 namespace Angular2WebApi.Controllers
 {
-    //[Authorize]
+    [Authorize]
     [RoutePrefix("api/Values")]
     public class ValuesController : ApiController
     {
