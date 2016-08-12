@@ -1,6 +1,6 @@
 ﻿import { Injectable } from '@angular/core';
 import { Headers, Response, Http  } from '@angular/http';
-import { Person } from '../hero';
+
 import { Observable } from 'rxjs/Rx';
 
 @Injectable()
@@ -19,13 +19,7 @@ export class GalleryService {
         return people$;
     }
 
-    getHeroes(): Observable<Person[]> {
-        let people$ = this.http
-            .get(`${this.baseUrl}/people`, { headers: this.getHeaders() })
-            .map(mapPersons)
-            .catch(handleError);
-        return people$;
-    }
+  
 
     private handleError(error: any) {
         console.error('An error occurred', error);
@@ -40,43 +34,14 @@ export class GalleryService {
     private getHeaders2() {
         let headers = new Headers();
         headers.append('Accept', 'application/json;charset=UTF-8');
-        headers.append('Authorization', 'Bearer ' + localStorage['tok']);
+        headers.append('Authorization', 'Bearer ' + localStorage['auth_token']);
         return headers;
     }
 }
-function mapPersons(response: Response): Person[] {
-    // uncomment to simulate error:
-    // throw new Error('ups! Force choke!');
-
-    // The response of the API has a results
-    // property with the actual results
-    return response.json().results.map(toPerson)
-}
-
-function toPerson(r: any): Person {
-    let person = <Person>({
-        id: extractId(r),
-        url: r.url,
-        name: r.name,
-        weight: r.mass,
-        height: r.height,
-    });
-    console.log('Parsed person:', person);
-    return person;
-}
-
-// to avoid breaking the rest of our app
-// I extract the id from the person url
-function extractId(personData: any) {
-    let extractedId = personData.url.replace('http://swapi.co/api/people/', '').replace('/', '');
-    return parseInt(extractedId);
-}
 
 
-function mapPerson(response: Response): Person {
-    // toPerson looks just like in the previous example
-    return toPerson(response.json());
-}
+
+
 
 function mapValues(response: Response): Hero[] {
     // uncomment to simulate error:

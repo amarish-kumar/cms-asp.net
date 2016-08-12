@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 
 @Component({
     selector: 'blog',
-    templateUrl: 'app/components/blog.component.cshtml',
+    templateUrl: 'app/components/blog.component.html',
     styleUrls: ['app/components/blog.component.css'],
 })
 

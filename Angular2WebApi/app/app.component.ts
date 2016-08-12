@@ -5,12 +5,14 @@ import { BlogComponent } from './components/blog.component';
 import { GalleryComponent } from './components/gallery.component';
 import { AboutComponent } from './components/about.component';
 import { LoginComponent } from './components/login.component';
+import { RegisterComponent } from './components/register.component';
+import { Token } from './common/tokens';
 
 @Component({
     selector: 'my-app',
-    templateUrl: 'app/component.cshtml',
+    templateUrl: 'app/component.html',
     directives: [ROUTER_DIRECTIVES],
-    precompile: [DashboardComponent, BlogComponent, GalleryComponent, AboutComponent, LoginComponent],
+    precompile: [DashboardComponent, BlogComponent, GalleryComponent, AboutComponent, LoginComponent, RegisterComponent],
     styles: [`
      nav a.active {
         color: #039be5;
@@ -19,7 +21,10 @@ import { LoginComponent } from './components/login.component';
 })
 export class AppComponent {
     title = 'App';
-    constructor(private router: Router) { }
+    token
+    constructor(private router: Router) {
+        this.token = localStorage['auth_token'];
+    }
     gotoLogin() {
         this.router.navigate(['/login']);
     }
@@ -28,7 +33,9 @@ export class AppComponent {
     }
 
     logOut() {
-        console.log(localStorage['tok']);
-        localStorage.removeItem("tok");
+        console.log(localStorage['auth_token']);
+        localStorage.removeItem("auth_token");
+        this.token = undefined;
+        this.router.navigate(['/']);
     }
 }

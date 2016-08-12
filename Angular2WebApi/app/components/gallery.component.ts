@@ -1,6 +1,6 @@
 ﻿import { Component, OnInit } from '@angular/core';
 import { GalleryService } from '../services/gallery.service';
-import { Person } from '../hero';
+
 
 @Component({
     selector: 'gallery',
@@ -35,7 +35,7 @@ import { Person } from '../hero';
 export class GalleryComponent implements OnInit {
     heroes: Hero[];
     error: any;
-    people: Person[] = [];
+   
     errorMessage: string = '';
     isLoading: boolean = true;
     constructor(private galleryService: GalleryService) { }
@@ -43,18 +43,14 @@ export class GalleryComponent implements OnInit {
     getHeroes() {
         this.galleryService
             .getValues()
-            .subscribe(p => this.heroes = p);
+            .subscribe(
+            p => this.heroes = p,
+            e => this.errorMessage = e,
+            () => this.isLoading = false);
         let a = 1;
     }
-    getHeroes2() {
-        this.galleryService
-            .getHeroes().subscribe(
-         /* happy path */ p => this.people = p,
-         /* error path */ e => this.errorMessage = e,
-         /* onComplete */() => this.isLoading = false);
-    }
-    ngOnInit() {
-        this.getHeroes2();
+    
+    ngOnInit() {        
         this.getHeroes();
     }
 }

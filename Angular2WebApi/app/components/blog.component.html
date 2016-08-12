@@ -1,8 +1,7 @@
 ﻿<div class="container">
-    @if (User.IsInRole("Admin"))
-    {
-    <a class="btn btn-blog pull-right marginBottom10" (click)="gotoDetail('1')">READ MORE</a>
-    }
+    <div [hidden]="!token">
+        <a class="btn btn-blog pull-right marginBottom10" (click)="gotoDetail('1')">READ MORE</a>
+    </div>
     <div id="blog" class="row">
         <div class="col-md-12">
 

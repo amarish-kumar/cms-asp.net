@@ -1,0 +1,52 @@
+﻿
+
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" [routerLink]="['/dashboard']">{{title}}</a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <nav>
+                <ul class="nav navbar-nav">
+                    <li><a [routerLink]="['/dashboard']" routerLinkActive="active">Home</a></li>
+                    <li><a [routerLink]="['/blog']" routerLinkActive="active">Blog</a></li>
+                    <li><a [routerLink]="['/gallery']" routerLinkActive="active">Gallery</a></li>
+                    <li><a [routerLink]="['/about']" routerLinkActive="active">About</a></li>
+                </ul>
+            </nav>
+            <div [hidden]="!token">
+                <ul class="nav navbar-nav pull-right">
+                    <li class="dropdown profile-dropdown">
+                        <a>
+                           
+                            <span class="hidden-xs"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a (click)="logOut()"><b>Log Out</b></a>
+                    </li>
+                </ul>
+            </div>
+            <div [hidden]="token">
+                <ul class="pull-right">
+                    <li>
+                        <a (click)="gotoLogin()"><b>Login</b></a>
+                    </li>
+                    <li>
+                        <a (click)="gotoRegister()"><b>Register</b></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<router-outlet></router-outlet>
+<hr />
+<footer>
+    <p>&copy; My ASP.NET Application</p>
+</footer>

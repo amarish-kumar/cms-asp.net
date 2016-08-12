@@ -225,7 +225,7 @@
   <ItemGroup>
     <Content Include="app\components\blog.component.css" />
     <Content Include="app\components\carousel.component\carousel.component.css" />
-    <None Include="app\component.cshtml" />
+    <Content Include="app\component.html" />
     <Content Include="app\components\dashboard.component.html" />
     <Content Include="app\components\login.component.css" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -252,7 +252,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="package.json" />
-    <None Include="app\components\blog.component.cshtml" />
+    <Content Include="app\components\blog.component.html" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -316,21 +316,21 @@
     <TypeScriptCompile Include="app\app.component.ts" />
     <TypeScriptCompile Include="app\app.routes.ts" />
     <TypeScriptCompile Include="app\common\headers.ts" />
+    <TypeScriptCompile Include="app\common\tokens.ts" />
     <TypeScriptCompile Include="app\components\about.component.ts" />
     <TypeScriptCompile Include="app\components\blog-entry.component.ts" />
     <TypeScriptCompile Include="app\components\blog.component.ts" />
     <TypeScriptCompile Include="app\components\carousel.component\carousel.component.ts" />
     <TypeScriptCompile Include="app\components\dashboard.component.ts" />
     <TypeScriptCompile Include="app\components\register.component.ts" />
+    <TypeScriptCompile Include="app\logged-in.guard.ts" />
     <TypeScriptCompile Include="app\models\entry.ts" />
     <TypeScriptCompile Include="app\services\gallery.service.ts" />
     <TypeScriptCompile Include="app\components\login.component.ts" />
     <TypeScriptCompile Include="app\components\gallery.component.ts" />
     <TypeScriptCompile Include="app\components\carousel.component\image.interface.ts" />
-    <TypeScriptCompile Include="app\hero.ts" />
-    <TypeScriptCompile Include="app\heroes.ts" />
-    <TypeScriptCompile Include="app\in-memory-data.service.ts" />
     <TypeScriptCompile Include="app\main.ts" />
+    <TypeScriptCompile Include="app\services\user.service.ts" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

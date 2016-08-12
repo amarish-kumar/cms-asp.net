@@ -3,7 +3,6 @@ import { AppComponent } from './app.component';
 import { appRouterProviders } from './app.routes';
 import { Http, HTTP_PROVIDERS } from '@angular/http';
 import { disableDeprecatedForms, provideForms } from '@angular/forms';// on the next releases it won't be necessary
-//import { AuthConfig, AuthHttp } from 'angular2-jwt';
 
 bootstrap(AppComponent, [
     appRouterProviders,
