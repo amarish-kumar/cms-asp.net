@@ -1,7 +1,16 @@
 ﻿import { Component } from '@angular/core';
+import { isLoggedin } from '../logged-in.guard';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'about',
-    template: '<h1>About1</h1>'
+    template: '<h1>{{Title}}</h1>'
 })
-export class AboutComponent { }
+
+
+export class AboutComponent {
+    Title = 'adios';
+    
+       
+    
+}

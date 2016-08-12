@@ -19,7 +19,7 @@
                     <li><a [routerLink]="['/about']" routerLinkActive="active">About</a></li>
                 </ul>
             </nav>
-            <div [hidden]="!token">
+            <div [hidden]="!authorize">
                 <ul class="nav navbar-nav pull-right">
                     <li class="dropdown profile-dropdown">
                         <a>
@@ -32,7 +32,7 @@
                     </li>
                 </ul>
             </div>
-            <div [hidden]="token">
+            <div [hidden]="authorize">
                 <ul class="pull-right">
                     <li>
                         <a (click)="gotoLogin()"><b>Login</b></a>

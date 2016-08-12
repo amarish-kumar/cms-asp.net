@@ -20,9 +20,8 @@ export class RegisterComponent {
         let body = JSON.stringify({ email, password, confirmPassword });
         this.http.post('http://localhost:50464/api/Account/Register', body, { headers: contentHeaders })
             .subscribe(
-            response => {
-                localStorage.setItem('tok', response.json().access_token);
-                this.router.navigate(['/dashboard']);
+            response => {               
+                this.router.navigate(['/login']);
             },
             error => {
                 alert(error.text());

@@ -1,5 +1,6 @@
-﻿import { Component } from '@angular/core';
+﻿import { Component, DoCheck } from '@angular/core';
 import { Router } from '@angular/router';
+import { isLoggedin } from '../logged-in.guard';
 
 @Component({
     selector: 'blog',
@@ -7,9 +8,12 @@ import { Router } from '@angular/router';
     styleUrls: ['app/components/blog.component.css'],
 })
 
-export class BlogComponent {
-    
+export class BlogComponent implements DoCheck {
+    authorize = false;
     constructor(private router: Router) { }
+    ngDoCheck() {
+        this.authorize = isLoggedin();
+    }
     gotoDetail(selectedHero) {
         this.router.navigate(['/blog-entry', selectedHero]);
     }

@@ -1,4 +1,4 @@
-﻿import { Component } from '@angular/core';
+﻿import { Component, DoCheck } from '@angular/core';
 import { ROUTER_DIRECTIVES, Router } from '@angular/router';
 import { DashboardComponent } from './components/dashboard.component';
 import { BlogComponent } from './components/blog.component';
@@ -6,7 +6,7 @@ import { GalleryComponent } from './components/gallery.component';
 import { AboutComponent } from './components/about.component';
 import { LoginComponent } from './components/login.component';
 import { RegisterComponent } from './components/register.component';
-import { Token } from './common/tokens';
+import { isLoggedin } from './logged-in.guard';
 
 @Component({
     selector: 'my-app',
@@ -19,12 +19,16 @@ import { Token } from './common/tokens';
     }
 `]
 })
-export class AppComponent {
+export class AppComponent implements DoCheck {
     title = 'App';
-    token
-    constructor(private router: Router) {
-        this.token = localStorage['auth_token'];
+    authorize = false;
+    constructor(private router: Router) {       
     }
+
+    ngDoCheck() {
+        this.authorize = isLoggedin();
+    }
+
     gotoLogin() {
         this.router.navigate(['/login']);
     }
@@ -35,7 +39,7 @@ export class AppComponent {
     logOut() {
         console.log(localStorage['auth_token']);
         localStorage.removeItem("auth_token");
-        this.token = undefined;
+        this.authorize = isLoggedin();
         this.router.navigate(['/']);
     }
 }
