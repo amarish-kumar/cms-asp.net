@@ -6,6 +6,7 @@ import { AboutComponent } from './components/about.component';
 import { BlogEntryComponent } from './components/blog-entry.component';
 import { LoginComponent } from './components/login.component';
 import { RegisterComponent } from './components/register.component';
+import { ManageEntryComponent } from './components/manage-entry.component';
 
 const routes: RouterConfig = [
     {
@@ -40,6 +41,14 @@ const routes: RouterConfig = [
     {
         path: 'register',
         component: RegisterComponent
+    },    
+    {
+        path: 'manage-entry',
+        component: ManageEntryComponent
+    },
+    {
+        path: 'manage-entry/:id',
+        component: ManageEntryComponent
     }
 ];
 

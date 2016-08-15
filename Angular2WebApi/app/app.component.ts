@@ -6,13 +6,15 @@ import { GalleryComponent } from './components/gallery.component';
 import { AboutComponent } from './components/about.component';
 import { LoginComponent } from './components/login.component';
 import { RegisterComponent } from './components/register.component';
+import { ManageEntryComponent } from './components/manage-entry.component';
+import { BlogEntryComponent } from './components/blog-entry.component';
 import { isLoggedin } from './logged-in.guard';
 
 @Component({
     selector: 'my-app',
     templateUrl: 'app/component.html',
     directives: [ROUTER_DIRECTIVES],
-    precompile: [DashboardComponent, BlogComponent, GalleryComponent, AboutComponent, LoginComponent, RegisterComponent],
+    precompile: [DashboardComponent, BlogComponent, GalleryComponent, AboutComponent, LoginComponent, RegisterComponent, ManageEntryComponent, BlogEntryComponent],
     styles: [`
      nav a.active {
         color: #039be5;

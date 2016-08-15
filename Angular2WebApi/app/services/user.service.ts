@@ -21,7 +21,7 @@ export class UserService {
                 localStorage.setItem('auth_token', response.json().access_token);
                 this.loggedIn = true;
                 return response.statusText;
-            }).catch(this.handleError);       
+            })/*.catch(this.handleError)*/;       
     }
     private handleError(error: any) {
         console.error('An error occurred', error);

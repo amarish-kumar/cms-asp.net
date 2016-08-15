@@ -17,4 +17,8 @@ export class BlogComponent implements DoCheck {
     gotoDetail(selectedHero) {
         this.router.navigate(['/blog-entry', selectedHero]);
     }
+
+    gotoManagement(selectEntry) {
+        this.router.navigate(['/manage-entry', selectEntry]);
+    }
 }

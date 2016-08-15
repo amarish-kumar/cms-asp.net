@@ -4,7 +4,9 @@ import { Router } from '@angular/router';
 
 @Component({
     selector: 'about',
-    template: '<h1>{{Title}}</h1>'
+    template: `<h1>{{Title}}</h1>
+<p myHighlight>I am green with envy!</p>
+`
 })
 
 

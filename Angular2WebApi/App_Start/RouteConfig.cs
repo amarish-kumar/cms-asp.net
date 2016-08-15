@@ -56,6 +56,12 @@ namespace Angular2WebApi
             );
 
             routes.MapRoute(
+                name: "manage-entry",
+                url: "manage-entry/{id}",
+                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
