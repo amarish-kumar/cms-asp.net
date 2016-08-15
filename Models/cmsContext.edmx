@@ -1,0 +1,1026 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Angular2.DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="__RefactorLog">
+          <Key>
+            <PropertyRef Name="OperationKey" />
+          </Key>
+          <Property Name="OperationKey" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaims">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ClaimType" Type="nvarchar(max)" />
+          <Property Name="ClaimValue" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogins">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="RegSiteCreacion" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Angular2.DB.dbo.AspNetUserRoles' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="AspNetUserRoles">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" />
+          <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+          <Property Name="PasswordHash" Type="nvarchar(max)" />
+          <Property Name="SecurityStamp" Type="nvarchar(max)" />
+          <Property Name="PhoneNumber" Type="nvarchar(max)" />
+          <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="datetime" />
+          <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="CategoryID" />
+          </Key>
+          <Property Name="CategoryID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="NameCategory" Type="nvarchar(max)" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="Image" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Comment">
+          <Key>
+            <PropertyRef Name="CommentID" />
+          </Key>
+          <Property Name="CommentID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CommentFatherID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CommentContent" Type="nvarchar(max)" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
+          <Property Name="ProfileUserID" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CommentImage">
+          <Key>
+            <PropertyRef Name="CommentImageID" />
+          </Key>
+          <Property Name="CommentImageID" Type="int" Nullable="false" />
+          <Property Name="ImageID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CommentID" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Entry">
+          <Key>
+            <PropertyRef Name="EntryID" />
+          </Key>
+          <Property Name="EntryID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Title" Type="nvarchar(max)" />
+          <Property Name="Content" Type="nvarchar(max)" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="Image" Type="nvarchar(max)" />
+          <Property Name="ProfileUserID" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Gallery">
+          <Key>
+            <PropertyRef Name="GalleryID" />
+          </Key>
+          <Property Name="GalleryID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="Image" Type="nvarchar(max)" />
+          <Property Name="Title" Type="nvarchar(max)" />
+          <Property Name="CategoryID" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Image">
+          <Key>
+            <PropertyRef Name="ImageID" />
+          </Key>
+          <Property Name="ImageID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
+          <Property Name="Title" Type="nvarchar(max)" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="ImageP" Type="nvarchar(max)" />
+          <Property Name="ProfileUserID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="GalleryID" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ImagesScore">
+          <Key>
+            <PropertyRef Name="ImagesScoreID" />
+          </Key>
+          <Property Name="ImagesScoreID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ImageID" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ProfileUser">
+          <Key>
+            <PropertyRef Name="ProfileUserID" />
+          </Key>
+          <Property Name="ProfileUserID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="AspNetUserID" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="DateBird" Type="datetime" Nullable="false" />
+          <Property Name="Email" Type="nvarchar(max)" />
+          <Property Name="Name" Type="nvarchar(max)" />
+          <Property Name="NickName" Type="nvarchar(max)" />
+          <Property Name="Password" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Score">
+          <Key>
+            <PropertyRef Name="ScoreID" />
+          </Key>
+          <Property Name="ScoreID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
+          <Property Name="ImagesScoreID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="IsLike" Type="bit" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_CommentImage_Comment">
+          <End Role="Comment" Type="Self.Comment" Multiplicity="1" />
+          <End Role="CommentImage" Type="Self.CommentImage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Comment">
+              <PropertyRef Name="CommentID" />
+            </Principal>
+            <Dependent Role="CommentImage">
+              <PropertyRef Name="CommentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CommentImage_Image">
+          <End Role="Image" Type="Self.Image" Multiplicity="1" />
+          <End Role="CommentImage" Type="Self.CommentImage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Image">
+              <PropertyRef Name="ImageID" />
+            </Principal>
+            <Dependent Role="CommentImage">
+              <PropertyRef Name="ImageID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetRoles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Categoriy_dbo_Category_CategoryID">
+          <End Role="Category" Type="Self.Category" Multiplicity="1" />
+          <End Role="Gallery" Type="Self.Gallery" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="CategoryID" />
+            </Principal>
+            <Dependent Role="Gallery">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Comments_dbo_Comments_CommentFatherID">
+          <End Role="Comment" Type="Self.Comment" Multiplicity="1" />
+          <End Role="Comment1" Type="Self.Comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Comment">
+              <PropertyRef Name="CommentID" />
+            </Principal>
+            <Dependent Role="Comment1">
+              <PropertyRef Name="CommentFatherID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Comments_dbo_ProfileUsers_ProfileUserID">
+          <End Role="ProfileUser" Type="Self.ProfileUser" Multiplicity="1" />
+          <End Role="Comment" Type="Self.Comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProfileUser">
+              <PropertyRef Name="ProfileUserID" />
+            </Principal>
+            <Dependent Role="Comment">
+              <PropertyRef Name="ProfileUserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Entries_dbo_ProfileUsers_ProfileUserID">
+          <End Role="ProfileUser" Type="Self.ProfileUser" Multiplicity="1" />
+          <End Role="Entry" Type="Self.Entry" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProfileUser">
+              <PropertyRef Name="ProfileUserID" />
+            </Principal>
+            <Dependent Role="Entry">
+              <PropertyRef Name="ProfileUserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Galleriy_dbo_ProfileUsers_ProfileUserID">
+          <End Role="ProfileUser" Type="Self.ProfileUser" Multiplicity="1" />
+          <End Role="Image" Type="Self.Image" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProfileUser">
+              <PropertyRef Name="ProfileUserID" />
+            </Principal>
+            <Dependent Role="Image">
+              <PropertyRef Name="ProfileUserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Images_dbo_Galleries_GalleryID">
+          <End Role="Gallery" Type="Self.Gallery" Multiplicity="1" />
+          <End Role="Image" Type="Self.Image" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gallery">
+              <PropertyRef Name="GalleryID" />
+            </Principal>
+            <Dependent Role="Image">
+              <PropertyRef Name="GalleryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_ImagesScores_dbo_Image">
+          <End Role="Image" Type="Self.Image" Multiplicity="1" />
+          <End Role="ImagesScore" Type="Self.ImagesScore" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Image">
+              <PropertyRef Name="ImageID" />
+            </Principal>
+            <Dependent Role="ImagesScore">
+              <PropertyRef Name="ImageID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PerfilUsuario_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="ProfileUser" Type="Self.ProfileUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProfileUser">
+              <PropertyRef Name="AspNetUserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Score_ImagesScore">
+          <End Role="ImagesScore" Type="Self.ImagesScore" Multiplicity="1" />
+          <End Role="Score" Type="Self.Score" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ImagesScore">
+              <PropertyRef Name="ImagesScoreID" />
+            </Principal>
+            <Dependent Role="Score">
+              <PropertyRef Name="ImagesScoreID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Angular2DBModelStoreContainer">
+          <EntitySet Name="__RefactorLog" EntityType="Self.__RefactorLog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Comment" EntityType="Self.Comment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CommentImage" EntityType="Self.CommentImage" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Entry" EntityType="Self.Entry" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Gallery" EntityType="Self.Gallery" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Image" EntityType="Self.Image" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ImagesScore" EntityType="Self.ImagesScore" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProfileUser" EntityType="Self.ProfileUser" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Score" EntityType="Self.Score" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [AspNetUserRoles].[UserId] AS [UserId], 
+    [AspNetUserRoles].[RoleId] AS [RoleId]
+    FROM [dbo].[AspNetUserRoles] AS [AspNetUserRoles]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_CommentImage_Comment" Association="Self.FK_CommentImage_Comment">
+            <End Role="Comment" EntitySet="Comment" />
+            <End Role="CommentImage" EntitySet="CommentImage" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CommentImage_Image" Association="Self.FK_CommentImage_Image">
+            <End Role="Image" EntitySet="Image" />
+            <End Role="CommentImage" EntitySet="CommentImage" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Categoriy_dbo_Category_CategoryID" Association="Self.FK_dbo_Categoriy_dbo_Category_CategoryID">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="Gallery" EntitySet="Gallery" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Comments_dbo_Comments_CommentFatherID" Association="Self.FK_dbo_Comments_dbo_Comments_CommentFatherID">
+            <End Role="Comment" EntitySet="Comment" />
+            <End Role="Comment1" EntitySet="Comment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Comments_dbo_ProfileUsers_ProfileUserID" Association="Self.FK_dbo_Comments_dbo_ProfileUsers_ProfileUserID">
+            <End Role="ProfileUser" EntitySet="ProfileUser" />
+            <End Role="Comment" EntitySet="Comment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Entries_dbo_ProfileUsers_ProfileUserID" Association="Self.FK_dbo_Entries_dbo_ProfileUsers_ProfileUserID">
+            <End Role="ProfileUser" EntitySet="ProfileUser" />
+            <End Role="Entry" EntitySet="Entry" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Galleriy_dbo_ProfileUsers_ProfileUserID" Association="Self.FK_dbo_Galleriy_dbo_ProfileUsers_ProfileUserID">
+            <End Role="ProfileUser" EntitySet="ProfileUser" />
+            <End Role="Image" EntitySet="Image" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Images_dbo_Galleries_GalleryID" Association="Self.FK_dbo_Images_dbo_Galleries_GalleryID">
+            <End Role="Gallery" EntitySet="Gallery" />
+            <End Role="Image" EntitySet="Image" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_ImagesScores_dbo_Image" Association="Self.FK_dbo_ImagesScores_dbo_Image">
+            <End Role="Image" EntitySet="Image" />
+            <End Role="ImagesScore" EntitySet="ImagesScore" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PerfilUsuario_AspNetUsers" Association="Self.FK_PerfilUsuario_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="ProfileUser" EntitySet="ProfileUser" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Score_ImagesScore" Association="Self.FK_Score_ImagesScore">
+            <End Role="ImagesScore" EntitySet="ImagesScore" />
+            <End Role="Score" EntitySet="Score" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Angular2.DBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="C__RefactorLog">
+          <Key>
+            <PropertyRef Name="OperationKey" />
+          </Key>
+          <Property Name="OperationKey" Type="Guid" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetRole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.AspNetUserRoles" FromRole="AspNetRoles" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserClaim">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaims" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUserLogin">
+          <Key>
+            <PropertyRef Name="LoginProvider" />
+            <PropertyRef Name="ProviderKey" />
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="LoginProvider" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProviderKey" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="RegSiteCreacion" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogins" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUser">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+          <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUserClaims" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
+          <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
+          <NavigationProperty Name="ProfileUsers" Relationship="Self.FK_PerfilUsuario_AspNetUsers" FromRole="AspNetUsers" ToRole="ProfileUser" />
+          <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="CategoryID" />
+          </Key>
+          <Property Name="CategoryID" Type="Guid" Nullable="false" />
+          <Property Name="NameCategory" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Galleries" Relationship="Self.FK_dbo_Categoriy_dbo_Category_CategoryID" FromRole="Category" ToRole="Gallery" />
+        </EntityType>
+        <EntityType Name="Comment">
+          <Key>
+            <PropertyRef Name="CommentID" />
+          </Key>
+          <Property Name="CommentID" Type="Guid" Nullable="false" />
+          <Property Name="CommentFatherID" Type="Guid" Nullable="false" />
+          <Property Name="CommentContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ProfileUserID" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="CommentImages" Relationship="Self.FK_CommentImage_Comment" FromRole="Comment" ToRole="CommentImage" />
+          <NavigationProperty Name="Comment1" Relationship="Self.FK_dbo_Comments_dbo_Comments_CommentFatherID" FromRole="Comment" ToRole="Comment1" />
+          <NavigationProperty Name="Comment2" Relationship="Self.FK_dbo_Comments_dbo_Comments_CommentFatherID" FromRole="Comment1" ToRole="Comment" />
+          <NavigationProperty Name="ProfileUser" Relationship="Self.FK_dbo_Comments_dbo_ProfileUsers_ProfileUserID" FromRole="Comment" ToRole="ProfileUser" />
+        </EntityType>
+        <EntityType Name="CommentImage">
+          <Key>
+            <PropertyRef Name="CommentImageID" />
+          </Key>
+          <Property Name="CommentImageID" Type="Int32" Nullable="false" />
+          <Property Name="ImageID" Type="Guid" Nullable="false" />
+          <Property Name="CommentID" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="Comment" Relationship="Self.FK_CommentImage_Comment" FromRole="CommentImage" ToRole="Comment" />
+          <NavigationProperty Name="Image" Relationship="Self.FK_CommentImage_Image" FromRole="CommentImage" ToRole="Image" />
+        </EntityType>
+        <EntityType Name="Entry">
+          <Key>
+            <PropertyRef Name="EntryID" />
+          </Key>
+          <Property Name="EntryID" Type="Guid" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ProfileUserID" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="ProfileUser" Relationship="Self.FK_dbo_Entries_dbo_ProfileUsers_ProfileUserID" FromRole="Entry" ToRole="ProfileUser" />
+        </EntityType>
+        <EntityType Name="Gallery">
+          <Key>
+            <PropertyRef Name="GalleryID" />
+          </Key>
+          <Property Name="GalleryID" Type="Guid" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CategoryID" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="Category" Relationship="Self.FK_dbo_Categoriy_dbo_Category_CategoryID" FromRole="Gallery" ToRole="Category" />
+          <NavigationProperty Name="Images" Relationship="Self.FK_dbo_Images_dbo_Galleries_GalleryID" FromRole="Gallery" ToRole="Image" />
+        </EntityType>
+        <EntityType Name="Image">
+          <Key>
+            <PropertyRef Name="ImageID" />
+          </Key>
+          <Property Name="ImageID" Type="Guid" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ImageP" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ProfileUserID" Type="Guid" Nullable="false" />
+          <Property Name="GalleryID" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="CommentImages" Relationship="Self.FK_CommentImage_Image" FromRole="Image" ToRole="CommentImage" />
+          <NavigationProperty Name="Gallery" Relationship="Self.FK_dbo_Images_dbo_Galleries_GalleryID" FromRole="Image" ToRole="Gallery" />
+          <NavigationProperty Name="ProfileUser" Relationship="Self.FK_dbo_Galleriy_dbo_ProfileUsers_ProfileUserID" FromRole="Image" ToRole="ProfileUser" />
+          <NavigationProperty Name="ImagesScores" Relationship="Self.FK_dbo_ImagesScores_dbo_Image" FromRole="Image" ToRole="ImagesScore" />
+        </EntityType>
+        <EntityType Name="ImagesScore">
+          <Key>
+            <PropertyRef Name="ImagesScoreID" />
+          </Key>
+          <Property Name="ImagesScoreID" Type="Guid" Nullable="false" />
+          <Property Name="ImageID" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="Image" Relationship="Self.FK_dbo_ImagesScores_dbo_Image" FromRole="ImagesScore" ToRole="Image" />
+          <NavigationProperty Name="Scores" Relationship="Self.FK_Score_ImagesScore" FromRole="ImagesScore" ToRole="Score" />
+        </EntityType>
+        <EntityType Name="ProfileUser">
+          <Key>
+            <PropertyRef Name="ProfileUserID" />
+          </Key>
+          <Property Name="ProfileUserID" Type="Guid" Nullable="false" />
+          <Property Name="AspNetUserID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DateBird" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NickName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AspNetUser" Relationship="Self.FK_PerfilUsuario_AspNetUsers" FromRole="ProfileUser" ToRole="AspNetUsers" />
+          <NavigationProperty Name="Comments" Relationship="Self.FK_dbo_Comments_dbo_ProfileUsers_ProfileUserID" FromRole="ProfileUser" ToRole="Comment" />
+          <NavigationProperty Name="Entries" Relationship="Self.FK_dbo_Entries_dbo_ProfileUsers_ProfileUserID" FromRole="ProfileUser" ToRole="Entry" />
+          <NavigationProperty Name="Images" Relationship="Self.FK_dbo_Galleriy_dbo_ProfileUsers_ProfileUserID" FromRole="ProfileUser" ToRole="Image" />
+        </EntityType>
+        <EntityType Name="Score">
+          <Key>
+            <PropertyRef Name="ScoreID" />
+          </Key>
+          <Property Name="ScoreID" Type="Guid" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ImagesScoreID" Type="Guid" Nullable="false" />
+          <Property Name="IsLike" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="ImagesScore" Relationship="Self.FK_Score_ImagesScore" FromRole="Score" ToRole="ImagesScore" />
+        </EntityType>
+        <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserClaims" Type="Self.AspNetUserClaim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserClaims">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserLogins" Type="Self.AspNetUserLogin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserLogins">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PerfilUsuario_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1" />
+          <End Role="ProfileUser" Type="Self.ProfileUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ProfileUser">
+              <PropertyRef Name="AspNetUserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Categoriy_dbo_Category_CategoryID">
+          <End Role="Category" Type="Self.Category" Multiplicity="1" />
+          <End Role="Gallery" Type="Self.Gallery" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="CategoryID" />
+            </Principal>
+            <Dependent Role="Gallery">
+              <PropertyRef Name="CategoryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CommentImage_Comment">
+          <End Role="Comment" Type="Self.Comment" Multiplicity="1" />
+          <End Role="CommentImage" Type="Self.CommentImage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Comment">
+              <PropertyRef Name="CommentID" />
+            </Principal>
+            <Dependent Role="CommentImage">
+              <PropertyRef Name="CommentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Comments_dbo_Comments_CommentFatherID">
+          <End Role="Comment" Type="Self.Comment" Multiplicity="1" />
+          <End Role="Comment1" Type="Self.Comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Comment">
+              <PropertyRef Name="CommentID" />
+            </Principal>
+            <Dependent Role="Comment1">
+              <PropertyRef Name="CommentFatherID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Comments_dbo_ProfileUsers_ProfileUserID">
+          <End Role="ProfileUser" Type="Self.ProfileUser" Multiplicity="1" />
+          <End Role="Comment" Type="Self.Comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProfileUser">
+              <PropertyRef Name="ProfileUserID" />
+            </Principal>
+            <Dependent Role="Comment">
+              <PropertyRef Name="ProfileUserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CommentImage_Image">
+          <End Role="Image" Type="Self.Image" Multiplicity="1" />
+          <End Role="CommentImage" Type="Self.CommentImage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Image">
+              <PropertyRef Name="ImageID" />
+            </Principal>
+            <Dependent Role="CommentImage">
+              <PropertyRef Name="ImageID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Entries_dbo_ProfileUsers_ProfileUserID">
+          <End Role="ProfileUser" Type="Self.ProfileUser" Multiplicity="1" />
+          <End Role="Entry" Type="Self.Entry" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProfileUser">
+              <PropertyRef Name="ProfileUserID" />
+            </Principal>
+            <Dependent Role="Entry">
+              <PropertyRef Name="ProfileUserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Images_dbo_Galleries_GalleryID">
+          <End Role="Gallery" Type="Self.Gallery" Multiplicity="1" />
+          <End Role="Image" Type="Self.Image" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gallery">
+              <PropertyRef Name="GalleryID" />
+            </Principal>
+            <Dependent Role="Image">
+              <PropertyRef Name="GalleryID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Galleriy_dbo_ProfileUsers_ProfileUserID">
+          <End Role="ProfileUser" Type="Self.ProfileUser" Multiplicity="1" />
+          <End Role="Image" Type="Self.Image" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ProfileUser">
+              <PropertyRef Name="ProfileUserID" />
+            </Principal>
+            <Dependent Role="Image">
+              <PropertyRef Name="ProfileUserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_ImagesScores_dbo_Image">
+          <End Role="Image" Type="Self.Image" Multiplicity="1" />
+          <End Role="ImagesScore" Type="Self.ImagesScore" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Image">
+              <PropertyRef Name="ImageID" />
+            </Principal>
+            <Dependent Role="ImagesScore">
+              <PropertyRef Name="ImageID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Score_ImagesScore">
+          <End Role="ImagesScore" Type="Self.ImagesScore" Multiplicity="1" />
+          <End Role="Score" Type="Self.Score" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ImagesScore">
+              <PropertyRef Name="ImagesScoreID" />
+            </Principal>
+            <Dependent Role="Score">
+              <PropertyRef Name="ImagesScoreID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AspNetUserRoles">
+          <End Role="AspNetRoles" Type="Self.AspNetRole" Multiplicity="*" />
+          <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="cmsContext" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="C__RefactorLog" EntityType="Self.C__RefactorLog" />
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRole" />
+          <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaim" />
+          <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogin" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUser" />
+          <EntitySet Name="Categories" EntityType="Self.Category" />
+          <EntitySet Name="Comments" EntityType="Self.Comment" />
+          <EntitySet Name="CommentImages" EntityType="Self.CommentImage" />
+          <EntitySet Name="Entries" EntityType="Self.Entry" />
+          <EntitySet Name="Galleries" EntityType="Self.Gallery" />
+          <EntitySet Name="Images" EntityType="Self.Image" />
+          <EntitySet Name="ImagesScores" EntityType="Self.ImagesScore" />
+          <EntitySet Name="ProfileUsers" EntityType="Self.ProfileUser" />
+          <EntitySet Name="Scores" EntityType="Self.Score" />
+          <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PerfilUsuario_AspNetUsers" Association="Self.FK_PerfilUsuario_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="ProfileUser" EntitySet="ProfileUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Categoriy_dbo_Category_CategoryID" Association="Self.FK_dbo_Categoriy_dbo_Category_CategoryID">
+            <End Role="Category" EntitySet="Categories" />
+            <End Role="Gallery" EntitySet="Galleries" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CommentImage_Comment" Association="Self.FK_CommentImage_Comment">
+            <End Role="Comment" EntitySet="Comments" />
+            <End Role="CommentImage" EntitySet="CommentImages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Comments_dbo_Comments_CommentFatherID" Association="Self.FK_dbo_Comments_dbo_Comments_CommentFatherID">
+            <End Role="Comment" EntitySet="Comments" />
+            <End Role="Comment1" EntitySet="Comments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Comments_dbo_ProfileUsers_ProfileUserID" Association="Self.FK_dbo_Comments_dbo_ProfileUsers_ProfileUserID">
+            <End Role="ProfileUser" EntitySet="ProfileUsers" />
+            <End Role="Comment" EntitySet="Comments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CommentImage_Image" Association="Self.FK_CommentImage_Image">
+            <End Role="Image" EntitySet="Images" />
+            <End Role="CommentImage" EntitySet="CommentImages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Entries_dbo_ProfileUsers_ProfileUserID" Association="Self.FK_dbo_Entries_dbo_ProfileUsers_ProfileUserID">
+            <End Role="ProfileUser" EntitySet="ProfileUsers" />
+            <End Role="Entry" EntitySet="Entries" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Images_dbo_Galleries_GalleryID" Association="Self.FK_dbo_Images_dbo_Galleries_GalleryID">
+            <End Role="Gallery" EntitySet="Galleries" />
+            <End Role="Image" EntitySet="Images" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Galleriy_dbo_ProfileUsers_ProfileUserID" Association="Self.FK_dbo_Galleriy_dbo_ProfileUsers_ProfileUserID">
+            <End Role="ProfileUser" EntitySet="ProfileUsers" />
+            <End Role="Image" EntitySet="Images" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_ImagesScores_dbo_Image" Association="Self.FK_dbo_ImagesScores_dbo_Image">
+            <End Role="Image" EntitySet="Images" />
+            <End Role="ImagesScore" EntitySet="ImagesScores" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Score_ImagesScore" Association="Self.FK_Score_ImagesScore">
+            <End Role="ImagesScore" EntitySet="ImagesScores" />
+            <End Role="Score" EntitySet="Scores" />
+          </AssociationSet>
+          <AssociationSet Name="AspNetUserRoles" Association="Self.AspNetUserRoles">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Angular2DBModelStoreContainer" CdmEntityContainer="cmsContext">
+          <EntitySetMapping Name="C__RefactorLog">
+            <EntityTypeMapping TypeName="Angular2.DBModel.C__RefactorLog">
+              <MappingFragment StoreEntitySet="__RefactorLog">
+                <ScalarProperty Name="OperationKey" ColumnName="OperationKey" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetRoles">
+            <EntityTypeMapping TypeName="Angular2.DBModel.AspNetRole">
+              <MappingFragment StoreEntitySet="AspNetRoles">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserClaims">
+            <EntityTypeMapping TypeName="Angular2.DBModel.AspNetUserClaim">
+              <MappingFragment StoreEntitySet="AspNetUserClaims">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+                <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUserLogins">
+            <EntityTypeMapping TypeName="Angular2.DBModel.AspNetUserLogin">
+              <MappingFragment StoreEntitySet="AspNetUserLogins">
+                <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+                <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="RegSiteCreacion" ColumnName="RegSiteCreacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUsers">
+            <EntityTypeMapping TypeName="Angular2.DBModel.AspNetUser">
+              <MappingFragment StoreEntitySet="AspNetUsers">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+                <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+                <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+                <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+                <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Categories">
+            <EntityTypeMapping TypeName="Angular2.DBModel.Category">
+              <MappingFragment StoreEntitySet="Category">
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="NameCategory" ColumnName="NameCategory" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Comments">
+            <EntityTypeMapping TypeName="Angular2.DBModel.Comment">
+              <MappingFragment StoreEntitySet="Comment">
+                <ScalarProperty Name="CommentID" ColumnName="CommentID" />
+                <ScalarProperty Name="CommentFatherID" ColumnName="CommentFatherID" />
+                <ScalarProperty Name="CommentContent" ColumnName="CommentContent" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="ProfileUserID" ColumnName="ProfileUserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CommentImages">
+            <EntityTypeMapping TypeName="Angular2.DBModel.CommentImage">
+              <MappingFragment StoreEntitySet="CommentImage">
+                <ScalarProperty Name="CommentImageID" ColumnName="CommentImageID" />
+                <ScalarProperty Name="ImageID" ColumnName="ImageID" />
+                <ScalarProperty Name="CommentID" ColumnName="CommentID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Entries">
+            <EntityTypeMapping TypeName="Angular2.DBModel.Entry">
+              <MappingFragment StoreEntitySet="Entry">
+                <ScalarProperty Name="EntryID" ColumnName="EntryID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="ProfileUserID" ColumnName="ProfileUserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Galleries">
+            <EntityTypeMapping TypeName="Angular2.DBModel.Gallery">
+              <MappingFragment StoreEntitySet="Gallery">
+                <ScalarProperty Name="GalleryID" ColumnName="GalleryID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Images">
+            <EntityTypeMapping TypeName="Angular2.DBModel.Image">
+              <MappingFragment StoreEntitySet="Image">
+                <ScalarProperty Name="ImageID" ColumnName="ImageID" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="ImageP" ColumnName="ImageP" />
+                <ScalarProperty Name="ProfileUserID" ColumnName="ProfileUserID" />
+                <ScalarProperty Name="GalleryID" ColumnName="GalleryID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ImagesScores">
+            <EntityTypeMapping TypeName="Angular2.DBModel.ImagesScore">
+              <MappingFragment StoreEntitySet="ImagesScore">
+                <ScalarProperty Name="ImagesScoreID" ColumnName="ImagesScoreID" />
+                <ScalarProperty Name="ImageID" ColumnName="ImageID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProfileUsers">
+            <EntityTypeMapping TypeName="Angular2.DBModel.ProfileUser">
+              <MappingFragment StoreEntitySet="ProfileUser">
+                <ScalarProperty Name="ProfileUserID" ColumnName="ProfileUserID" />
+                <ScalarProperty Name="AspNetUserID" ColumnName="AspNetUserID" />
+                <ScalarProperty Name="DateBird" ColumnName="DateBird" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="NickName" ColumnName="NickName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Scores">
+            <EntityTypeMapping TypeName="Angular2.DBModel.Score">
+              <MappingFragment StoreEntitySet="Score">
+                <ScalarProperty Name="ScoreID" ColumnName="ScoreID" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="ImagesScoreID" ColumnName="ImagesScoreID" />
+                <ScalarProperty Name="IsLike" ColumnName="IsLike" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="AspNetUserRoles" TypeName="Angular2.DBModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+            <EndProperty Name="AspNetRoles">
+              <ScalarProperty Name="Id" ColumnName="RoleId" />
+            </EndProperty>
+            <EndProperty Name="AspNetUsers">
+              <ScalarProperty Name="Id" ColumnName="UserId" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -12,22 +12,19 @@ namespace Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Gallery
+    public partial class AspNetRole
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Gallery()
+        public AspNetRole()
         {
-            this.Images = new HashSet<Image>();
+            this.AspNetUsers = new HashSet<AspNetUser>();
         }
     
-        public System.Guid GalleryID { get; set; }
+        public string Id { get; set; }
+        public string Name { get; set; }
         public string Description { get; set; }
-        public string Image { get; set; }
-        public string Title { get; set; }
-        public System.Guid CategoryID { get; set; }
     
-        public virtual Category Category { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Image> Images { get; set; }
+        public virtual ICollection<AspNetUser> AspNetUsers { get; set; }
     }
 }

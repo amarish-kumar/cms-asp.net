@@ -12,13 +12,13 @@ namespace Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Score
+    public partial class AspNetUserLogin
     {
-        public System.Guid ScoreID { get; set; }
-        public System.DateTime Date { get; set; }
-        public System.Guid ImagesScoreID { get; set; }
-        public bool IsLike { get; set; }
+        public string LoginProvider { get; set; }
+        public string ProviderKey { get; set; }
+        public string UserId { get; set; }
+        public string RegSiteCreacion { get; set; }
     
-        public virtual ImagesScore ImagesScore { get; set; }
+        public virtual AspNetUser AspNetUser { get; set; }
     }
 }

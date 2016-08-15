@@ -12,13 +12,13 @@ namespace Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Score
+    public partial class CommentImage
     {
-        public System.Guid ScoreID { get; set; }
-        public System.DateTime Date { get; set; }
-        public System.Guid ImagesScoreID { get; set; }
-        public bool IsLike { get; set; }
+        public int CommentImageID { get; set; }
+        public System.Guid ImageID { get; set; }
+        public System.Guid CommentID { get; set; }
     
-        public virtual ImagesScore ImagesScore { get; set; }
+        public virtual Comment Comment { get; set; }
+        public virtual Image Image { get; set; }
     }
 }

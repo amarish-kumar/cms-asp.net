@@ -12,13 +12,8 @@ namespace Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Score
+    public partial class C__RefactorLog
     {
-        public System.Guid ScoreID { get; set; }
-        public System.DateTime Date { get; set; }
-        public System.Guid ImagesScoreID { get; set; }
-        public bool IsLike { get; set; }
-    
-        public virtual ImagesScore ImagesScore { get; set; }
+        public System.Guid OperationKey { get; set; }
     }
 }

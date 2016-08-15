@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="d1ee6b1608dd4cc9be77c7539cd463a8" Name="Diagram1">
+        <EntityTypeShape EntityType="Angular2.DBModel.C__RefactorLog" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Angular2.DBModel.AspNetRole" Width="1.5" PointX="0.75" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Angular2.DBModel.AspNetUserClaim" Width="1.5" PointX="5.25" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Angular2.DBModel.AspNetUserLogin" Width="1.5" PointX="5.25" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Angular2.DBModel.AspNetUser" Width="1.5" PointX="3" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Angular2.DBModel.Category" Width="1.5" PointX="6" PointY="16" IsExpanded="true" />
+        <EntityTypeShape EntityType="Angular2.DBModel.Comment" Width="1.5" PointX="7.5" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="Angular2.DBModel.CommentImage" Width="1.5" PointX="9.75" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Angular2.DBModel.Entry" Width="1.5" PointX="7.5" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Angular2.DBModel.Gallery" Width="1.5" PointX="8.25" PointY="15.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Angular2.DBModel.Image" Width="1.5" PointX="10.5" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Angular2.DBModel.ImagesScore" Width="1.5" PointX="12.75" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Angular2.DBModel.ProfileUser" Width="1.5" PointX="5.25" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Angular2.DBModel.Score" Width="1.5" PointX="15" PointY="13" IsExpanded="true" />
+        <AssociationConnector Association="Angular2.DBModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="Angular2.DBModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="Angular2.DBModel.FK_PerfilUsuario_AspNetUsers" ManuallyRouted="false" />
+        <AssociationConnector Association="Angular2.DBModel.FK_dbo_Categoriy_dbo_Category_CategoryID" ManuallyRouted="false" />
+        <AssociationConnector Association="Angular2.DBModel.FK_CommentImage_Comment" ManuallyRouted="false" />
+        <AssociationConnector Association="Angular2.DBModel.FK_dbo_Comments_dbo_Comments_CommentFatherID" ManuallyRouted="false" />
+        <AssociationConnector Association="Angular2.DBModel.FK_dbo_Comments_dbo_ProfileUsers_ProfileUserID" ManuallyRouted="false" />
+        <AssociationConnector Association="Angular2.DBModel.FK_CommentImage_Image" ManuallyRouted="false" />
+        <AssociationConnector Association="Angular2.DBModel.FK_dbo_Entries_dbo_ProfileUsers_ProfileUserID" ManuallyRouted="false" />
+        <AssociationConnector Association="Angular2.DBModel.FK_dbo_Images_dbo_Galleries_GalleryID" ManuallyRouted="false" />
+        <AssociationConnector Association="Angular2.DBModel.FK_dbo_Galleriy_dbo_ProfileUsers_ProfileUserID" ManuallyRouted="false" />
+        <AssociationConnector Association="Angular2.DBModel.FK_dbo_ImagesScores_dbo_Image" ManuallyRouted="false" />
+        <AssociationConnector Association="Angular2.DBModel.FK_Score_ImagesScore" ManuallyRouted="false" />
+        <AssociationConnector Association="Angular2.DBModel.AspNetUserRoles" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
