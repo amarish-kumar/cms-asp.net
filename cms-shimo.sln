@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Angular2WebApi", "Angular2WebApi\Angular2WebApi.csproj", "{3A49A203-03E0-49F1-B12A-F01FBFDC8B03}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cms-shimo", "Angular2WebApi\cms-shimo.csproj", "{3A49A203-03E0-49F1-B12A-F01FBFDC8B03}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "Models\Models.csproj", "{B120FFAF-CF54-4F84-9FD4-44CC0E5A7B73}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repositories", "Repositories\Repositories.csproj", "{7BCD2A2D-FB51-4AAE-A38B-45FECE3C6DE0}"
 EndProject
-Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Angular2.DB", "Angular2.DB\Angular2.DB.sqlproj", "{2356FDA1-4FF1-4DB9-AA16-0F5923B94D34}"
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "cms-shimo.DB", "Angular2.DB\cms-shimo.DB.sqlproj", "{2356FDA1-4FF1-4DB9-AA16-0F5923B94D34}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
