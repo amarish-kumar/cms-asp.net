@@ -1,6 +1,6 @@
 # cms-asp.net
 
-This is a simple test of how to use Angular 2 in VS 2015, and consuming a web api.
+This is a little CMS project using Angular 2, ASP.NET and consuming a web api.
 
 Tools and Frameworks
 
