@@ -237,6 +237,7 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Images\Green-016-loading.gif" />
     <Content Include="Images\img1.jpg" />
     <Content Include="Images\img8.jpg" />
     <Content Include="Images\img7.jpg" />

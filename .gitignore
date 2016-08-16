@@ -20,3 +20,11 @@
 /cms-asp.net.db/*.dbmdl
 /cms-asp.net.db/*.user
 /cms-asp.net.models/*
+/cms-asp.net/app/services/*.map
+/cms-asp.net/app/services/*.js
+/cms-asp.net/app/models/*.js
+/cms-asp.net/app/models/*.map
+/cms-asp.net/app/directives/*.js
+/cms-asp.net/app/directives/*.map
+/cms-asp.net/app/common/*.map
+/cms-asp.net/app/common/*.js
